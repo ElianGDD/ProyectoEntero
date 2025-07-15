@@ -17,17 +17,21 @@ public class Security {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/Presentacion").hasAuthority("PROGRAMADOR")
+
+        http.authorizeHttpRequests(auth -> auth
+                .requestMatchers("/Presentacion/CargaMasiva").hasAuthority("ADMIN")
+                .requestMatchers("/Presentacion/Login").permitAll()
+                .requestMatchers("/Presentacion").hasAnyAuthority("ADMIN", "ANALISTA", "PROGRAMADOR")
+                .requestMatchers("/Presentacion/**").hasAuthority("PROGRAMADOR")
                 .anyRequest().authenticated()
-                )
+        )
                 .formLogin(form -> form
+                .loginPage("/Presentacion/Login")
                 .permitAll()
                 .defaultSuccessUrl("/Presentacion", true)
                 )
                 .logout(logout -> logout.permitAll())
-                .csrf(csrf -> csrf.disable()); 
+                .csrf(csrf -> csrf.disable());
 
         return http.build();
     }
@@ -39,8 +43,17 @@ public class Security {
                 .password(passwordEncoder().encode("password1"))
                 .authorities("PROGRAMADOR")
                 .build();
-
-        return new InMemoryUserDetailsManager(programador);
+        UserDetails admin = User.builder()
+                .username("Kevin")
+                .password(passwordEncoder().encode("password2"))
+                .authorities("ADMIN")
+                .build();
+        UserDetails analista = User.builder()
+                .username("mago1")
+                .password(passwordEncoder().encode("password3"))
+                .authorities("ANALISTA")
+                .build();
+        return new InMemoryUserDetailsManager(programador, admin, analista);
     }
 
     @Bean

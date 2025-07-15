@@ -53,7 +53,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller //controlador
+@Controller
 @RequestMapping("/Presentacion")
 public class PresentacionController {
 
@@ -96,6 +96,11 @@ public class PresentacionController {
 //        }
         return "Presentacion";
 
+    }
+    
+    @GetMapping("/Login")
+    public String GetLogin(){
+        return "Login";
     }
 
     @GetMapping("UsuarioForm/{idAlumno}") // este prepara la vista de formualrio
