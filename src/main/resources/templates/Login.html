@@ -11,7 +11,9 @@
     </head>
     <body>
         <div class="container d-flex justify-content-center align-items-center ">
+            
             <div class="card mt-3">
+                
                 <div class="card-body">
 
                     <div class="row">
@@ -22,35 +24,32 @@
                         <form th:action="@{/Presentacion/Login}" method="post">
                             <div class="mb-3 col-12">
                                 <label for="exampleInputEmail1" class="form-label">Usuario</label>
-                                <input type="text" name="username" class="form-control" id="user" >
+                                <input type="text" name="username" class="form-control" id="user">
                             </div>
-                      
+
                             <div class="mb-3 col-12">
                                 <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                                <input type="password" name="password"  class="form-control" id="password">
+                                <input type="password" name="password" class="form-control" id="password">
                             </div>
-                            
+
                             <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-bar-up"></i></button>
                         </form>
 
-
-                        <div class="col-12">
-
+                        <div class="col-12 mt-2">
+                            <p th:if="${param.error}" class="text-danger text-center">Usuario o contraseña incorrectos.</p>
                         </div>
                     </div>
+
 
                 </div>
             </div>
         </div>
-        
-             <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-             <script>
-//                 function errores(){
-//                     const nombreError = document.getElementById("user").value;
-//                     const 
-//                 }
-                 
-             </script>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script>
+
+
+        </script>
 
 
     </body>

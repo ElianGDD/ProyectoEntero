@@ -24,6 +24,12 @@
             <li class="nav-item">
                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
             </li>
+            <li class="nav-item">
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-escape"></i> Salir
+                    </button>
+                </form></li>
         </ul>
     </header>
 

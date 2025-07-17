@@ -12,16 +12,16 @@ import java.util.Date;
 public class Usuario {
 
     private int idUsuario;
-    @Size(min = 3, max = 10, message = "Nombre entre 3 y 5")
-    @NotEmpty(message = "Ingresa dato :@")
+//    @Size(min = 3, max = 10, message = "Nombre entre 3 y 5")
+//    @NotEmpty(message = "Ingresa dato :@")
     private String nombre;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date FechaNacimiento;
     private String userName;
     private String apellidoPaterno;
     private String apellidoMaterno;
     //@Email(message = "Correo invalido")
-    @Pattern(regexp = "[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}", message = "correo invalido regex")
+//    @Pattern(regexp = "[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}", message = "correo invalido regex")
     private String email;
     private String password;
     private char sexo;  // CHAR(1) en Oracle
